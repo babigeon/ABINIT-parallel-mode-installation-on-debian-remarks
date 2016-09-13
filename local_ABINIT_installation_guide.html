@@ -1,0 +1,920 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.3.3.2 (Linux)"/>
+	<meta name="author" content="jlb "/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changedby" content="jlb "/>
+	<meta name="changed" content="2016-09-07T14:48:29.484583489"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-07T14:48:01.807612026">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-07T14:45:47.012878701">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-07T14:26:15.347201053">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-07T14:22:36.041230520">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-07T14:12:39.801169379">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-07T14:08:52.282844933">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-07T13:56:27.608728033">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-07T13:34:34.300422223">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-07T11:32:45.211181144">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-07T11:26:48.289067769">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-07T11:18:36.774176203">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-06T23:00:25.259297335">
+	<meta name="created" content="2016-09-06T12:46:33.844662474">
+	<meta name="changedby" content="jlb ">
+	<meta name="changed" content="2016-09-06T18:16:46.596100166">
+	<style type="text/css">
+		@page { margin: 2cm }
+		p { margin-bottom: 0.25cm; color: #000000; line-height: 120% }
+		a:link { so-language: zxx }
+	</style>
+</head>
+<body lang="fr-FR" text="#000000" dir="ltr" style="background: transparent">
+<p style="margin-bottom: 0cm; line-height: 100%">Index 1, september
+6, 2016</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0cm; line-height: 100%"><sdfield type=DOCINFO subtype=TITLE></sdfield><b>ABINIT
+and some scientitific libraries on Linux</b></p>
+<p align="center" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0cm; line-height: 100%"><b>Installation
+of parallel version, note for 2 different 64-bits machines</b></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>((Ultra!) Short
+intro to Abinit</b></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><span style="font-weight: normal">Abinit,
+developped by Université catholique de Louvain, is a code in atomic
+and molecular physics, intended to calculate abinitio, eigen
+energies, band structures,... of molecular and atomic systems. The
+calculation principles rely</span> <span style="font-weight: normal">on
+Density Functional Theory, with a lot of numerical and physical
+tricks to approximate N-body</span> <span style="font-weight: normal">problem
+and some more intricate points like Exc (exchange and correlation)
+terms in Hamiltonian. Some extensions of code deal with
+electron-phonon interaction, and non equilibrium configuration, ie
+for example laser interaction with solids. I am involved in</span>
+<span style="font-weight: normal">abinit for the modeling of field
+assisted</span> <span style="font-weight: normal">photoemision, and
+design</span> <span style="font-weight: normal">of futur electron
+cathodes for accelerators.</span></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><span style="font-weight: normal">More
+informations : see <a href="http://www.abinit.org/">http://www.abinit.org/</a></span></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><span style="font-weight: normal">Note
+: there is no prerequisite, but it is better to have some notions on
+cristallography, solid state and quantum physics… Please review for
+example <a href="http://koha3.in2p3.fr/cgi-bin/koha/opac-detail.pl?biblionumber=324">Neil
+</a></span><a href="http://koha3.in2p3.fr/cgi-bin/koha/opac-detail.pl?biblionumber=324">Ashcroft
+and David Mermin</a></p>
+<p style="margin-bottom: 0cm; line-height: 100%">It is convenient to
+subscribe to abinit forum, eventually for installation, but moreover
+for physics and numerical problems you may encounter issues further
+with the code.</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Note also that
+keyword is ''Bohr'' (atomic unit) the magic answer to subscribe, not
+''Angstrom''. Also it references an old version you must download to
+answer, which is not ecologic. If you complain you have the risk to
+receive a contemptuous answer form <b>one</b> (of them) webmaster.
+(no comment...)</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>Machine
+descriptions</b></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Preliminary notes:
+64bits mandatory ! Please do 
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">$grep -w -o lm
+/proc/cpuinfo</p>
+<p style="margin-bottom: 0cm; line-height: 100%">You MUST find lm.</p>
+<p style="margin-bottom: 0cm; line-height: 100%">OpenGL probably
+mandatory</p>
+<p style="margin-bottom: 0cm; line-height: 100%">please do $glxinfo |
+egrep «&nbsp;OpenGL vendor|OpenGL renderer</p>
+<p style="margin-bottom: 0cm; line-height: 100%">You must find OpenGL
+active. You also must know your family. Machines1&amp;2 are not AMD
+(they are Intel), so you ought to change some flavors if you are AMD,
+for abinit install. See instructions inside abinit site.</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<i>Machine 1 :</i></p>
+<p style="margin-bottom: 0cm; line-height: 100%">jlb@pcsera48:~$
+hostname</p>
+<p style="margin-bottom: 0cm; line-height: 100%">pcsera48</p>
+<p style="margin-bottom: 0cm; line-height: 100%">jlb@pcsera48:/proc$
+lscpu</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Architecture&nbsp;:
+x86_64</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Processeur(s)&nbsp;:
+4</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Liste de
+processeur(s) en ligne&nbsp;: 0-3</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Thread(s) par cœur&nbsp;:
+2</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Cœur(s) par
+socket&nbsp;: 2</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Socket(s)&nbsp;: 1</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Identifiant
+constructeur&nbsp;: GenuineIntel</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Famille de
+processeur&nbsp;: 6</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Modèle&nbsp;: 58</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Nom de modèle&nbsp;:
+Intel(R) Core(TM) i3-3220 CPU @ 3.30GHz</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Révision&nbsp;: 9</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Vitesse du
+processeur en MHz&nbsp;: 1600.000</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Vitesse maximale du
+processeur en MHz&nbsp;: 3300,0000</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Vitesse minimale du
+processeur en MHz&nbsp;: 1600,0000</p>
+<p style="margin-bottom: 0cm; line-height: 100%">BogoMIPS&nbsp;:
+6584.91</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Virtualisation&nbsp;:
+VT-x</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Cache L1d&nbsp;: 32K</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Cache L1i&nbsp;: 32K</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Cache L2&nbsp;: 256K</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Cache L3&nbsp;:
+3072K</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Nœud NUMA&nbsp;0 de
+processeur(s)&nbsp;: 0-3</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">(64 bits, 4 core)</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%; page-break-before: always">
+<i>Machine 2</i></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">jlb@nb-sera30:~$
+hostname</p>
+<p style="margin-bottom: 0cm; line-height: 100%">nb-sera30</p>
+<p style="margin-bottom: 0cm; line-height: 100%">jlb@nb-sera30:/proc$
+lscpu</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Architecture&nbsp;:
+x86_64</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Mode(s)
+opératoire(s) des processeurs&nbsp;: 32-bit, 64-bit</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Boutisme&nbsp;:
+Little Endian</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Processeur(s)&nbsp;:
+4</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Liste de
+processeur(s) en ligne&nbsp;: 0-3</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Thread(s) par cœur&nbsp;:
+2</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Cœur(s) par
+socket&nbsp;: 2</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Socket(s)&nbsp;: 1</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Nœud(s) NUMA&nbsp;:
+1</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Identifiant
+constructeur&nbsp;: GenuineIntel</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Famille de
+processeur&nbsp;: 6</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Modèle&nbsp;: 42</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Nom de modèle&nbsp;:
+Intel(R) Core(TM) i7-2620M CPU @ 2.70GHz</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Révision&nbsp;: 7</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Vitesse du
+processeur en MHz&nbsp;: 800.000</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Vitesse maximale du
+processeur en MHz&nbsp;: 2701,0000</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Vitesse minimale du
+processeur en MHz&nbsp;: 800,0000</p>
+<p style="margin-bottom: 0cm; line-height: 100%">BogoMIPS&nbsp;:
+5387.62</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Virtualisation&nbsp;:
+VT-x</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Cache L1d&nbsp;: 32K</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Cache L1i&nbsp;: 32K</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Cache L2&nbsp;: 256K</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Cache L3&nbsp;:
+4096K</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Nœud NUMA&nbsp;0 de
+processeur(s)&nbsp;: 0-3</p>
+<p style="margin-bottom: 0cm; line-height: 100%; page-break-before: always">
+There are 2 versions of Abinit&nbsp;: <a href="#serial"><b>serial</b></a>
+one, for single machine (eventually with multicore of course), and
+<a href="#parallel"><b>parallel</b></a> one for multi processors.
+That guide summerizes the status of parallel installation on the 2
+machines. It is intended to apply to Lal servers, so many points
+indicated here are not pertinents . However, Gitclone may permit an
+futur upgrade to take in account both situations. Moreafter, it will
+be seen that many installation processes may be translated to server
+case.</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>Softwares</b></p>
+<p style="margin-bottom: 0cm; line-height: 100%">On the 2 machines&nbsp;:</p>
+<p style="margin-bottom: 0cm; line-height: 100%">You need gcc and
+fortran.</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Python is highly
+recommanded</p>
+<p style="margin-bottom: 0cm; line-height: 100%">jlb@pcsera48:/etc$
+python -V</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Python 2.7.9</p>
+<p style="margin-bottom: 0cm; line-height: 100%">g++ is recommanded.
+I have not tried without it. You could need some g++ libraries...</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">jlb@pcsera48:/etc$
+dpkg --list | grep compiler</p>
+<p style="margin-bottom: 0cm; line-height: 100%">ii antlr
+2.7.7+dfsg-6 all language tool for constructing recognizers,
+compilers etc</p>
+<p style="margin-bottom: 0cm; line-height: 100%">ii g++ 4:4.9.2-2
+amd64 GNU C++ compiler</p>
+<p style="margin-bottom: 0cm; line-height: 100%">ii g++-4.9 4.9.2-10
+amd64 GNU C++ compiler</p>
+<p style="margin-bottom: 0cm; line-height: 100%">ii gcc 4:4.9.2-2
+amd64 GNU C compiler</p>
+<p style="margin-bottom: 0cm; line-height: 100%">ii gcc-4.9 4.9.2-10
+amd64 GNU C compiler</p>
+<p style="margin-bottom: 0cm; line-height: 100%">ii gfortran
+4:4.9.2-2 amd64 GNU Fortran 95 compiler</p>
+<p style="margin-bottom: 0cm; line-height: 100%">ii gfortran-4.9
+4.9.2-10</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><a name="serial"></a>
+<b>Abinit serial version </b>
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Very simple on
+Debian&nbsp;: Package = abinit (5.3.4.dfsg-3 and others) 
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">existing under old
+debian Wheezy</p>
+<p style="margin-bottom: 0cm; line-height: 100%">#apt-get install
+abinit</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Note that abinit is
+7.8.2 version, it is an old one and probably will be condamned in
+next future. It contains math libraries but not auxilliary packages
+(bigdft, PAW, libxc…). 
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">To build a more
+recent serial package for Jessie&nbsp;: todo…</p>
+<p style="margin-bottom: 0cm; line-height: 100%">To build a parallel
+one for Jessie&nbsp;: todo ...(!)</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%; page-break-before: always"><a name="parallel"></a>
+<b>Abinit parallel version</b></p>
+<p style="margin-bottom: 0cm; line-height: 100%">Last version was
+8.0.8 (July 2016)</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Download from site 
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">note&nbsp;: gunzip
+doesn't function, unlike website instructions. Try tar.</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Installed inside
+/opt/abinit-8.0.8</p>
+<p style="margin-bottom: 0cm; line-height: 100%">note&nbsp;:
+controversy about /opt and /usr. /usr is Unix historic. /opt is my
+preference beceause it is better enclosed.</p>
+<p style="margin-bottom: 0cm; line-height: 100%">you may immediately
+do ./configure, make, make install with success.</p>
+<p align="center" style="margin-bottom: 0cm; line-height: 100%"><b>BUT</b></p>
+<p style="margin-bottom: 0cm; line-height: 100%">You have big chances
+to gain a minimal version : serial, without extra packages.</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Try&nbsp;: make
+tests_in</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Regarding extra
+packages, normally you fail at less on bigDFT. 
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><i>So story starts
+here…</i></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>Compilation of
+parallel version</b></p>
+<p style="margin-bottom: 0cm; line-height: 100%">Prerequisites are :</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- GSL&nbsp;:
+scientific C library</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- fftw : Fast
+Fourier</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- openmpi : Message
+Passing Interface (parallel)</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- libblas&nbsp;:
+mathematical library</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- Blas&nbsp;:
+Mathematical library</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- Lapack&nbsp;:
+Mathematical libray</p>
+<p style="margin-bottom: 0cm; line-height: 100%">(- Blacs&nbsp;:
+Mathematical libray, in fact perhaps not mandatoy)</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- Openblas&nbsp;:
+Mathematical library, (contains Lapack, Blacs, Blas)</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- Atlas&nbsp;:
+Mathematical library</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- Plasma&nbsp;:
+parallel execution module</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- Levmar&nbsp;:
+library for numerical Jacobian optimization,</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- bigDFT&nbsp;:
+package for implementation of wavelets for wavefunctions</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><i>PROBABLY FOR
+SERVERS</i>&nbsp;:</p>
+<p style="margin-bottom: 0cm; line-height: 100%">MAGMA1.5&nbsp;: use
+of GPU capabilities for parallel computing (advanced)</p>
+<p style="margin-bottom: 0cm; line-height: 100%">But it seems you
+could also use cuda if you are NVIdia (?)</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Note that bigDFT
+encloses other softs (<a href="#bigdft">see hereafter</a>)</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">There are 2 ways of
+compiling abinit&nbsp;: 
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- inside package,
+you are <b>theorically</b> able to manage all cited compilations,
+with the abinit script (see hereafter), with the option –with
+flavor… In fact, numerous difficulties, and the advantage to be
+able to use individually different libraries, render that way not
+very interesting, but probably faster,</p>
+<p style="margin-bottom: 0cm; line-height: 100%">- you can compile
+<b>individually</b> all these softwares in the order I have
+specified.</p>
+<p style="margin-bottom: 0cm; line-height: 100%">We are now to
+describe their successive installations. As far as I can, and without
+specification, they are installed inside /opt (see )</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>Fftw install</b></p>
+<p style="margin-bottom: 0cm; line-height: 100%">fftw is a debian
+package (note : from now, all apt-get packages are installed as they
+like, frequently in /usr tree)</p>
+<p style="margin-bottom: 0cm; line-height: 100%">root@pcsera48:/#
+apt-get install fftw-dev</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Lecture des listes
+de paquets... Fait</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Construction de
+l'arbre des dépendances 
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Lecture des
+informations d'état... Fait</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Les paquets
+supplémentaires suivants seront installés&nbsp;: 
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">fftw2</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Paquets suggérés&nbsp;:</p>
+<p style="margin-bottom: 0cm; line-height: 100%">mpi-defaults-bin</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Les NOUVEAUX paquets
+suivants seront installés&nbsp;:</p>
+<p style="margin-bottom: 0cm; line-height: 100%">fftw-dev fftw2</p>
+<p style="margin-bottom: 0cm; line-height: 100%">You can copy the
+compiled files inside /usr/, but personnally I did copy all to a
+directory of /opt.</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>Openmpi</b></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Some reminders (for Dacc, not for Lal informatique service!) : don't
+confuse multicore execution, and multiprocessor (real parallel
+execution)</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Abinit is designed for multiprocessor (and multicore of course)
+execution.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Everybody can code multicore, for example in gcc, adding some
+instructions inside his programm.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+MPI (Message Passing Interface), may exist under several avatars,
+shared (by ultrafast bus) or distributed memory (internet or LAN for
+example)</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><span style="font-weight: normal">please
+see <a href="https://computing.llnl.gov/tutorials/parallel_comp/">https://computing.llnl.gov/tutorials/parallel_comp/</a>
+for a precise explanation.</span></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><span style="font-weight: normal">With
+machine1 &amp; machine2, the distributed memory is the simplest way,
+thank to Lal network (<a href="#distributed">see hereafter</a>). For
+Lal servers, it is to see if an hybrid model is possible.</span></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<b>Abinit mode how is it functionning</b> : to do</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><a name="distributed"></a>
+<b>Distributed memory with a ''cluster'' of 2 terminals</b></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+In local stations (true with servers?) you must manage 3 aspects&nbsp;:</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+- parallel version of gcc compiler,</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+- execution and environnment of parallel softwares</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+- hardware configuration.</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><span style="font-weight: normal">For
+linux clusters, there are 2 versions of parallel MPI&nbsp;: </span><b>Openmpi</b>
+<span style="font-weight: normal">and mpich.</span></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Note&nbsp;: you should perhaps need some components of mpich during
+further install. Please avoid it except explicit asking by the
+system, so give them then.</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<b>Openmpi install</b> : very simple, Debian package (Jessie) =
+openmpi-bin &amp; openmpi-dev</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+You must verify presence of mpi.h somewhere and note the path.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Let's verify presence of mpi&nbsp;:</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+jlb@pcsera48:~$ mpiexec --version</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+mpiexec (OpenRTE) 1.6.5</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Report bugs to http://www.open-mpi.org/community/help/</p>
+<p style="margin-bottom: 0cm; line-height: 100%; page-break-before: always">
+<br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<b>Parallel version of gcc compiler</b> : you have to input 'mpicc'
+instead of 'gcc'</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+jlb@pcsera48:~$ mpicc --version</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+gcc (Debian 4.9.2-10) 4.9.2</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Copyright (C) 2014 Free Software Foundation, Inc.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+This is free software; see the source for copying conditions. There
+is NO</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Note that mpicc is only a wrapper, and mainly depends on gcc options,
+so any compilation error is generally to search inside gcc.</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<b>Execution and environnment software</b>&nbsp;: todo</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Hardware configuration (probably doesn't apply to servers)</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+As already described, a link has to be done between machine1 and
+machine2 to work in distributed memory. The way I choosed is by ssh.
+You need to make a bidirectional link.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Let's install (Debian) package ssh-server (#apt-get install …) on
+the 2 machines</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Let's verify hostnames&nbsp;:</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+cat /etc/hosts : for machine1, localhost 127.0.0.1&nbsp;; pcsera48
+127.0.0.1</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+for machine2 localhost 127.0.0.1&nbsp;; nb-sera30.lal.in2p3</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Let's create a ''mpi user'' (recommended)</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+#adduser &lt;mpiuser&gt;</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+(define your &lt;login&gt; and &lt;***&gt; (mdp))</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Verify your hostname for machine2&nbsp;:</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+$hostname</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+nb-sera30 (so no need to change)</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Now you need to mutually exchange DSA keys</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+$ssh -keygen -t dsa</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+You verify&nbsp;: $ls -alR .ssh</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+key is stocked in id_dsa and id_dsa_pub.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Probably you have to give a ''magic sentence'' (as you like…)</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Now you can connect mutually to other machine (and see its mpiuser
+directory) by</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+ssh &lt;mpiuser_login&gt;@&lt;hostname&gt;</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Some difficulties met : todo...</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>Blas Compilation</b></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+For all following, it is recommended to download all tar.gz inside
+/abinit-8.0.8, so untar makes directories inside abinit</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+untar BLAS-3.6.0 and read make.inc file. You probably have to modify
+the path of blas_LINUX.a</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+After it, compile it with gfortran:</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+$gfortran -shared -O2 *f -o liblas.so -fPIC 
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+You should find liblas.so inside compiled library.</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>Lapack
+compilation</b></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+untar Lapack-3.6.1 and go inside make.inc . Simplest way is to define
+explicitely the paths of 
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+BLASLIB = libblas.a</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+CBLASLIB = usr/lib/atlas-base/libcblas.a</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+LAPACKLIB = liblapack.a</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+TMGLIB = libtmglib.a</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+LAPACKELIB = liblapacke.a</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+(it is my example for machine1) Of course you can parameterize
+.profile of .bashr, etc. or anything else. Note also that Lapack is
+(g)fortran library. After compilation, testing module doesn't work.
+You have probably to compile it separately.</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<b>BLACS installation&nbsp;</b>: failed</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+to achieve&nbsp;: todo</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Openblas include Blacs</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<b>CBLAS installation</b>&nbsp;: todo on machine1</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+machine 2&nbsp;:</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Download tar, made symbolic link, modified Makefile.inc, added CBDIR
+variable.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+You fill also absolute paths</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+and do&nbsp;: gcc -O3 -DADD -I../include gfortran -O3 -c</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+then ar -r ../lib/cblas_LINUX.a</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Of course you have multi ex of some libraries, but installations
+allow you to work with individual packages.</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>Openblas
+installation</b></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+One of the easiest&nbsp;!!</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+untar it under abinit - ./configure make make PREFIX= .. /Openblas
+installation</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+However, numerous warning messages during compilations</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Why&nbsp;: todo</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><span style="font-weight: normal">Before
+Atlas installation, you have to make <a href="#throttling">CPU
+throttling</a> (not for servers)</span></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><a name="throttling"></a>
+<b>CPU Throttling</b></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+The goal of throttling is to control the core(s) processor
+activities. In standard mode, cores are laizy. They rest at maximum
+(minimum frequency) between critical tasks.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+To change the throttling it can differ according to your machine, if
+you work with grub or Lilo, etc..</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+the procedures were not exactly identical on machines 1&amp;2.</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><span style="font-weight: normal">you
+can read <a href="https://wiki.debian.org/HowTo/CpuFrequencyScaling">https://wiki.debian.org/HowTo/CpuFrequencyScaling</a>,
+but it is not perhaps enough for you if it doesn't work. Please read
+forums and goof luck...or Pry</span></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+firstly&nbsp;: #apt-get install cpufrequtils 
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+go to /sys/device/system/cpu and browse a little all the files (don't
+change anything!)</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+You must see the cpu dependancies&nbsp;: grep .
+Cpu*/cpufreq/affected_cpu</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+after it, go for example to /cp0/cpufreq/ and $cat cpu_info_max_freq
+(resp min_freq)</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+machine 2 : we find (resp) 3,4GHz and 800MHz. Proc sleep at 800MHz
+very long times, you can be sure of it, specially on thunderbird…</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+notes</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+*If you search ''scaling_available_frequencies'', it no longer exists
+on Jessie.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+*new Intel driver has not ''on demand'' option for governor</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+In machine2, I have grub. I add intel_pstate = disable</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+ie inside etc/default/grub added GRUB_CMDLINE_LINUX=intel_pstate =
+disable</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Of course #update-grub and reboot</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+After it you can change your governor in ''performance''</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+#cpufreq -set –help gives you options, and</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+#/usr/bin/cpufreq-set -g performance -c x</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+with x = 0,1,2,3 (4 commands)</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+machine1 : here I have lilo</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+do append=&nbsp;»intel_pstate=disable&nbsp;»</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+then of course #/sbin/lilo</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+and reboot</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+IMPORTANTE NOTE Thermal security, manage the soft driver: todo !!! 
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Since installation (1month) no degradation</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>ATLAS
+installation</b></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+After throttling OK, download/untar Atlas, and $mkdir
+build-&lt;hostname&gt;</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+then go inside and ../configure -b 64 -D c -DPentiumCPS=3300
+–prefix=/opt/abinit-8.0.8/ATLAS3.10.3 –with netlib-lapack
+-tarfile=/opt/abinit-8.0&nbsp;.8/lapack-3.6.1.tgz</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+3300 is your throttling freq inMHz (to change according to your
+machine)</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+It seems important that your build dir include &lt;hostname&gt;.
+Example for machine1, /build-pcsera48</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+after it&nbsp;: make build</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+You could meet an issue during last step, make PREFIX=/usr/local/lib
+install. There was necessary for me to do</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+$cp $(INCSdir)/cblas.h $(INSTdir)/.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Don't forget also to change the paths inside make.top <b>and</b>
+make.inc</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+For testing, just do</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+$make ptcheck (parallel check)</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+$make time (gives a benchmark tabular)</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>PLASMA
+installation</b></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+some strange phenomena&nbsp;: system asks for hwloc</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+so #apt-get install hwloc but destruction of hwloc-nox</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+to understand&nbsp;: todo</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+For that install it is necessary to tell to the machine, the path of
+Blas and Lapack</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+strange&nbsp;: after exporting paths in $LD_LIBRARY_PATH&nbsp;,
+doesn't work.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Alternative:Download PLASMA installer. (python)</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+and do $./setup.py –cc=gcc –fc=gfortran --lblaslib=&nbsp;»-lf77blas
+-lcblas -latlas&nbsp;» downlapack –downlapc</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+(last arguments are downloding from netlib)</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Installation OK and you can test with 2 cores&nbsp;: normally, on
+single machine, you should read the following warning «&nbsp;following
+variables have been set to 1 OMP_NUM_THREADS,
+GOTO_NUM_THREADS,MKL_NUM_THREADS&nbsp;»</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>Levmar
+installation</b></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+you have the choice between make and cmake. I apologize not to be a
+lover of cmake.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Download/untar&nbsp;;</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Let's document library paths inside Makefile. I put off f2c, not
+necessary with gfortran.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Simply make, you have done. There is probably a LAPACK variable to
+inhibit/activate inside make&nbsp;: todo</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><a name="bigdft"></a>
+<b>BigDFT installation</b></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Before abinit install, bigDFT is probably the most delicate component
+to install</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Of course download/untar</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+There is a python installer inside root. Theorically you could run it
+entirely. Inside my configuration it doesn't work. Normally, you
+should also run ''module'' by ''module load…''&nbsp;: todo further</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+You have in first to install YAML, libXc. You do it again by wget,
+configure, make make install (they are simple libraries)</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+After it, and after a lot of trials the -temporary command line for
+installation could be:</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+../Installer.py build -c 'FCFLAGS=-O2' 'F90FLAGS=-fbound-check -O2
+-Wall' '--with -ext -linalg=-L/usr/lib -L/opt/etsf/lib -lxf90 -lxc
+-lblas -llapacl -lm' '--enable -opencl' 'CC=gcc' 'FC=gfortran'</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+This not correct, beceause the last components, bigdft (and spred)
+are not compiled, but could be enough for the first modules.</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><span style="font-weight: normal">To
+go further, you need to consult
+<a href="http://forum.abinit.org/viewtopic.php?f=3&amp;t=2005">http://forum.abinit.org/viewtopic.php?f=3&amp;t=2005</a>.</span></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Firstly export $CFGFLAGS_BIGDFT</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+$export CFGFLAGS_BIGDFT='--with-mpi-include=&quot;&quot;'</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+finally you have to choose mpif90.openmpi as fortran compiler and
+enable mpi.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+So the best is probably make clean and redo the new Installer command
+for all components&nbsp;: todo 
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<i>The Installer command is now</i></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+$<b>../Installer.py build -c 'FCFLAGS=-O2'
+'--with-ext-linalg=-L/usr/lib -L/opt/etsf/lib -lxcf90 -lxc -lblas
+-llapack -lm' '--enable-opencl' '--enable-mpi' 'CC=mpicc'
+'FC=mpif90.openmpi'</b></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+(note that I am not sure that opencl should be mandatory for linux
+terminals, unless performant configuration beceause it masters GPU
+processing)</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Confirmation&nbsp;:
+with that parametering, all bigdft package is installed. (Probably
+error message at the end is due to the test part, which, as usual,
+must be compiled alone 
+</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Anyway, that -delicate- step will certainly help for abinit install</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><b>ABINIT
+Installation</b></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+Now you dispose of main prerequisite inside abinit directory. So you
+can proceed to compilation.</p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+First impulse is to ./configure make make install, following site
+instructions. Of course, beceause of Murphy, it doesn't work for me.</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Second impulse is to
+generate scripts by makemake in abinit/config/scripts</p>
+<p style="margin-bottom: 0cm; line-height: 100%">I think it belongs
+to developper level ...</p>
+<p style="margin-bottom: 0cm; line-height: 100%">OK, There is however
+an autotool. Let's use it manually. Make a build dir inside abinit</p>
+<p style="margin-bottom: 0cm; line-height: 100%">jlb@pcsera48:/opt/abinit-8.0.8$
+mkdir temp-build</p>
+<p style="margin-bottom: 0cm; line-height: 100%">and copy one of
+configure.ac you will find inside abinit/doc/build/config-examples/</p>
+<p style="margin-bottom: 0cm; line-height: 100%">name it
+&lt;hostname.ac&gt;, (for machine 1 it is pcsera48.ac) and work on it</p>
+<p style="margin-bottom: 0cm; line-height: 100%">That file is
+enclosed in Git</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Compilation lasts
+long time measure= todo</p>
+<p style="margin-bottom: 0cm; line-height: 100%">After it, $make
+prefix=/opt/abinit-8.0.8 install</p>
+<p style="margin-bottom: 0cm; line-height: 100%">If you search exe
+files, they are in /opt/abinit-8.0.8<b>/bin</b> ...</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Levmar+Wannier90+atomPA+cuda
+: todo !</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Thanks for
+attention, JLuc</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%">Contributor :
+<a href="mailto:babigeon@lal.in2p3.fr">babigeon@lal.in2p3.fr</a></p>
+<p style="line-height: 100%"><br/>
+<br/>
+
+</p>
+</body>
+</html>
